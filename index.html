@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="mk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Шарено</title>
+  <meta name="description" content="Шарено: апликации за учење и игра за мали деца, без реклами и без собирање податоци.">
+  <link rel="icon" href="az-buki-vedi/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="top">
+    <a class="brand" href="./"><span class="dots" aria-hidden="true"></span>Шарено</a>
+    <div class="lang" role="group" aria-label="Јазик / Language">
+      <button type="button" data-set-lang="mk" aria-pressed="true">МК</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <!-- Macedonian -->
+  <section lang="mk" data-lang="mk">
+    <h1>Апликации за <span class="rainbow">мали деца</span></h1>
+    <p class="lead">Учење и игра за деца од 5 до 7 години. Без реклами, без купувања во апликацијата и без собирање податоци.</p>
+
+    <h2>Наши апликации</h2>
+    <article class="card">
+      <img src="az-buki-vedi/icon.png" alt="">
+      <div>
+        <h3>Аз Буки Веди</h3>
+        <p>Децата учат да ги пишуваат македонските букви и бројките: го следат знакот со прст, потег по потег, во правилен редослед. По секои пет знаци следува игра со балони.</p>
+        <div class="links">
+          <span class="soon">Наскоро на Google Play</span>
+          <a href="az-buki-vedi/privacy.html">Политика за приватност</a>
+        </div>
+      </div>
+    </article>
+
+    <h2>Наше ветување</h2>
+    <ul class="promise">
+      <li>Без реклами</li>
+      <li>Без купувања во апликацијата</li>
+      <li>Не собираме никакви податоци</li>
+      <li>Работи без интернет</li>
+    </ul>
+
+    <h2>Поддржете не</h2>
+    <div class="support">
+      <p>Апликациите се бесплатни. Ако ви се допаѓаат, можете да ја поддржите изработката на нови со мал прилог. Ова е за родители; во апликациите нема врски кон оваа страница.</p>
+      <a class="button" href="https://ko-fi.com/KOFI_USERNAME" rel="noopener">☕ Поддржете на Ko-fi</a>
+    </div>
+
+    <footer>Контакт: <a href="mailto:sareno.studio@gmail.com">sareno.studio@gmail.com</a></footer>
+  </section>
+
+  <!-- English -->
+  <section lang="en" data-lang="en" hidden>
+    <h1>Apps for <span class="rainbow">little ones</span></h1>
+    <p class="lead">Learning and play for children aged 5 to 7. No ads, no in-app purchases, and no data collection.</p>
+
+    <h2>Our apps</h2>
+    <article class="card">
+      <img src="az-buki-vedi/icon.png" alt="">
+      <div>
+        <h3>Аз Буки Веди</h3>
+        <p>Children learn to write the Macedonian Cyrillic letters and digits: they trace each symbol with a finger, stroke by stroke, in the correct order. After every five symbols there is a balloon game.</p>
+        <div class="links">
+          <span class="soon">Coming soon to Google Play</span>
+          <a href="az-buki-vedi/privacy.html#en">Privacy policy</a>
+        </div>
+      </div>
+    </article>
+
+    <h2>Our promise</h2>
+    <ul class="promise">
+      <li>No ads</li>
+      <li>No in-app purchases</li>
+      <li>We collect no data at all</li>
+      <li>Works offline</li>
+    </ul>
+
+    <h2>Support us</h2>
+    <div class="support">
+      <p>Our apps are free. If you like them, you can support the making of new ones with a small tip. This is for parents; the apps never link to this page.</p>
+      <a class="button" href="https://ko-fi.com/KOFI_USERNAME" rel="noopener">☕ Support on Ko-fi</a>
+    </div>
+
+    <footer>Contact: <a href="mailto:sareno.studio@gmail.com">sareno.studio@gmail.com</a></footer>
+  </section>
+</main>
+<script>
+  // Language switch; remembers the choice in the address (#en), nothing is stored.
+  (function () {
+    function show(lang) {
+      document.querySelectorAll('[data-lang]').forEach(function (s) {
+        s.hidden = s.getAttribute('data-lang') !== lang;
+      });
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+      });
+      document.documentElement.lang = lang;
+    }
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var lang = b.getAttribute('data-set-lang');
+        history.replaceState(null, '', lang === 'en' ? '#en' : location.pathname);
+        show(lang);
+      });
+    });
+    show(location.hash === '#en' ? 'en' : 'mk');
+  })();
+</script>
+</body>
+</html>
